@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <script>
+    var password = prompt("ادخل كلمة السر للدخول:");
+    if (password !== "BestMood78") {
+      alert("كلمة السر خطأ!");
+      window.location.href = "index.html"; // هيرجعه للصفحة الرئيسية
+    }
+  </script>
+  
+  <meta charset="UTF-8">
+  <title>لوحة إدارة الطلبات</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+</head>
+<body>
+  <style>
+    /* إعادة تعيين بعض الأنماط الافتراضية */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      color: #333;
+      padding: 20px;
+      direction: rtl;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 2rem;
+      color: #4CAF50;
+    }
+
+    .stats {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 1.2rem;
+      color: #555;
+    }
+
+    .controls {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin: 5px;
+      border: none;
+      background-color: #4CAF50;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    button:active {
+      background-color: #388e3c;
+    }
+
+    table {
+      width: 100%;
+      margin-top: 20px;
+      border-collapse: collapse;
+    }
+
+    table th,
+    table td {
+      padding: 12px;
+      text-align: right;
+      border: 1px solid #ddd;
+    }
+
+    table th {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    table td {
+      background-color: #fff;
+    }
+
+    table tr:hover {
+      background-color: #f1f1f1;
+    }
+
+    table button {
+      padding: 5px 10px;
+      background-color: #2196F3;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    table button:hover {
+      background-color: #1976D2;
+    }
+
+    table select {
+      width: 100%;
+      padding: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    /* تخصيص للزر مسح الكل */
+    button:nth-child(3) {
+      background-color: #ff9800;
+    }
+
+    button:nth-child(3):hover {
+      background-color: #fb8c00;
+    }
+  </style>
+
+  <h1>لوحة إدارة الطلبات</h1>
+
+  <div class="stats">
+    <span id="ordersCount">عدد الطلبات: 0</span>
+    <span id="totalSales">إجمالي المبيعات: 0 جنيه</span>
+  </div>
+
+  <div class="controls">
+    <button onclick="showTable()">عرض كجدول</button>
+    <button onclick="clearAllOrders()">مسح الكل</button>
+    <button onclick="exportExcel()">تصدير Excel</button>
+  </div>
+
+  <div id="ordersContainer"></div>
+
+  <script>
+    let orders = JSON.parse(localStorage.getItem('orders')) || [];
+
+    function updateStats() {
+      document.getElementById('ordersCount').textContent = `عدد الطلبات: ${orders.length}`;
+      let total = orders.reduce((sum, o) => {
+        let pricePerPerson = 50;
+        if (o.gameType === "بلياردو") pricePerPerson = 90;
+        else if (o.gameType === "بنغو") pricePerPerson = 75;
+        else if (o.gameType === "بلاي ستيشن") pricePerPerson = 45;
+        else if (o.gameType === "هاكي") pricePerPerson = 50;
+        else if (o.gameType === "بيبي فود") pricePerPerson = 50;
+        return sum + (Number(o.price.split(' ')[0]) || 0);
+      }, 0);
+      document.getElementById('totalSales').textContent = `إجمالي المبيعات: ${total} جنيه`;
+    }
+
+    function renderTable() {
+      const container = document.getElementById('ordersContainer');
+      container.innerHTML = '';
+      const table = document.createElement('table');
+      table.innerHTML = `<tr>
+        <th>الاسم</th><th>الهاتف</th><th>اللعبة</th><th>التاريخ</th>
+        <th>الوقت</th><th>السعر</th><th>ملاحظات</th><th>الحالة</th><th>عمليات</th>
+      </tr>`;
+      orders.forEach((order, i) => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>${order.name || 'غير محدد'}</td><td>${order.phone || 'غير محدد'}</td><td>${order.gameType || 'غير محدد'}</td>
+          <td>${order.date || 'غير محدد'}</td><td>${order.time || 'غير محدد'}</td><td>${order.price || 'غير محدد'}</td>
+          <td>${order.message || 'لا توجد ملاحظات'}</td>
+          <td>
+            <select class="status-select" onchange="changeStatus(this,${i})">
+              <option value="">حدد الحالة</option>
+              <option value="حضر">✅ حضر</option>
+              <option value="لم يحضر">❌ لم يحضر</option>
+            </select>
+          </td>
+          <td>
+            <button onclick="editOrder(${i})">تعديل</button>
+            <button onclick="deleteOrder(${i})">حذف</button>
+          </td>`;
+        table.appendChild(row);
+      });
+      container.appendChild(table);
+    }
+
+    function showTable() {
+      renderTable();
+      updateStats();
+    }
+
+    function changeStatus(select, i) {
+      orders[i].status = select.value;
+      localStorage.setItem('orders', JSON.stringify(orders));
+    }
+
+    function editOrder(i) {
+      let o = orders[i];
+      const name = prompt('تعديل الاسم', o.name);
+      const phone = prompt('تعديل الهاتف', o.phone);
+      if (name !== null) o.name = name;
+      if (phone !== null) o.phone = phone;
+      localStorage.setItem('orders', JSON.stringify(orders));
+      updateStats();
+    }
+
+    function deleteOrder(i) {
+      orders.splice(i, 1);
+      localStorage.setItem('orders', JSON.stringify(orders));
+      updateStats();
+      renderTable();
+    }
+
+    function clearAllOrders() {
+      orders = [];
+      localStorage.setItem('orders', JSON.stringify(orders));
+      updateStats();
+      renderTable();
+    }
+
+    function exportExcel() {
+      const wb = XLSX.utils.book_new();
+      const ws = XLSX.utils.json_to_sheet(orders);
+      XLSX.utils.book_append_sheet(wb, ws, 'الطلبات');
+      XLSX.writeFile(wb, 'orders.xlsx');
+    }
+
+    showTable();
+  </script>
+
+
+
+</body>
+</html>

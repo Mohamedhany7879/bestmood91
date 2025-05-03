@@ -1,0 +1,460 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>Best Mood 91</title>
+
+        <!-- CSS FILES -->                
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200;0,400;0,600;0,700;1,200;1,700&display=swap" rel="stylesheet">
+            
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+
+        <link href="css/bootstrap-icons.css" rel="stylesheet">
+
+        <link href="css/vegas.min.css" rel="stylesheet">
+
+        <link href="css/tooplate-barista.css" rel="stylesheet">
+
+
+
+    </head>
+    
+    <body>
+                
+            <main>
+                <nav class="navbar navbar-expand-lg">                
+                    <div class="container">
+                        <a class="navbar-brand d-flex align-items-center" href="index.html">
+                          
+                            Best Mood 91
+                        </a>
+        
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+        
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <ul class="navbar-nav ms-lg-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link click-scroll" href="#section_1">Home</a>
+                                </li>
+        
+                                <li class="nav-item">
+                                    <a class="nav-link click-scroll" href="#section_2">About</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link click-scroll" href="#section_3">Booking</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link click-scroll" href="#section_4">Contact</a>
+                                </li>
+                            </ul>
+
+                               
+                            </ul>
+
+                          
+                        </div>
+                    </div>
+                </nav>
+
+
+                <section class="hero-section d-flex justify-content-center align-items-center" id="section_1">
+
+                    <div class="container">
+                        <div class="row align-items-center">
+
+                            <div class="col-lg-6 col-12 mx-auto">
+                               
+                                
+                                <h1>welcome to Best Mood 91</h1>
+
+                                <p class="text-white mb-4 pb-lg-2">
+                                    your <em>favourite</em> The largest billiards hall.
+                                </p>
+
+                                <a class="btn custom-btn custom-border-btn smoothscroll me-3" href="#section_2">
+                                    Our Story
+                                </a>
+
+                                <a class="btn custom-btn smoothscroll me-2 mb-2" href="#section_3"><strong>Check your Booking</strong></a>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="hero-slides"></div>
+                </section>
+
+
+                <section class="about-section section-padding" id="section_2">
+                    <div class="section-overlay"></div>
+                    <div class="container">
+                        <div class="row align-items-center">
+
+                            <div class="col-lg-6 col-12">
+                                <div class="ratio ratio-1x1">
+                                    <video autoplay="" loop="" muted="" class="custom-video" poster="">
+                                        <source src="videos/video1.mp4" type="video/mp4">
+
+                                        Your browser does not support the video tag.
+                                    </video>
+
+                                    <div class="about-video-info d-flex flex-column">
+                                        <h4 class="mt-auto">We Started Since 2019.</h4>
+
+                                        <h4>Best place in 10th of ramadan.</h4>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-5 col-12 mt-4 mt-lg-0 mx-auto">
+                                <em class="text-white">Welcome to </em>
+
+                                <h2 class="text-white mb-3">Best Mode 91</h2>
+
+                                <p class="text-white">The first and largest integrated gaming
+                                    (Cafe - Games)
+                                    All amenities in one place.</p>
+
+                                <p class="text-white">Egypt,10th of Ramadan City, sky Mall, third floor in front of Al Rowad Club,  <br>
+
+                                 0110 492 5318
+                                    <br>
+                                    Bestmood10th@gmail.com</a>.</p>
+
+                                <a href="#barista-team" class="smoothscroll btn custom-btn custom-border-btn mt-3 mb-4">Meet Baristas</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+
+                <section class="booking-section section-padding" id="section_3">
+                    <div class="container">
+                      <div class="row">
+                        <div class="col-lg-10 col-12 mx-auto">
+                          <div class="booking-form-wrap">
+                            <div class="row">
+                              <div class="col-lg-7 col-12 p-0">
+                                <form id="bookingForm" class="custom-form booking-form" role="form">
+                                  <div class="text-center mb-4 pb-lg-2">
+                                    <em class="text-white">Fill out the booking form</em>
+                                    <h2 class="text-white">Book a table</h2>
+                                  </div>
+                  
+                                  <div class="booking-form-body">
+                                    <div class="row">
+                                      <!-- Game Selection -->
+                                      <div class="col-lg-6 col-12">
+                                        <div class="dropdown">
+                                          <button type="button" class="form-control" onclick="toggleDropdown()">Choose Game</button>
+                                          <div class="dropdown-content" id="gameOptions">
+                                            <div onclick="selectGame('billiards')">Billiards</div>
+                                            <div onclick="selectGame('pingpong')">Ping Pong</div>
+                                            <div onclick="selectGame('playstation')">Play Station</div>
+                                            <div onclick="selectGame('haki')">Haki</div>
+                                            <div onclick="selectGame('babyfoot')">Baby Foot</div>
+                                          </div>
+                                        </div>
+                                        <div id="gamePrice" class="mt-2 text-white"></div>
+                                      </div>
+                  
+                                      <div class="col-lg-12 col-12">
+                                        <input type="text" name="booking-form-price" id="booking-form-price" class="form-control"
+                                          placeholder="Game Price" readonly>
+                                      </div>
+                  
+                                      <!-- Full Name -->
+                                      <div class="col-lg-6 col-12">
+                                        <input type="text" name="booking-form-name" id="booking-form-name" class="form-control"
+                                          placeholder="Full Name" required>
+                                      </div>
+                  
+                                      <!-- Phone -->
+                                      <div class="col-lg-6 col-12">
+                                        <input type="tel" class="form-control" name="booking-form-phone" placeholder="Phone number"
+                                          id="booking-form-phone" required>
+                                      </div>
+                  
+                                      <!-- Time -->
+                                      <div class="col-lg-6 col-12">
+                                        <input class="form-control" type="time" name="booking-form-time" id="booking-form-time"
+                                          value="12:30">
+                                      </div>
+                  
+                                      <!-- Date -->
+                                      <div class="col-lg-6 col-12">
+                                        <input type="date" name="booking-form-date" id="booking-form-date" class="form-control"
+                                          required>
+                                      </div>
+                  
+                                      <!-- Message -->
+                                      <div class="col-lg-12 col-12">
+                                        <textarea name="booking-form-message" rows="3" class="form-control" id="booking-form-message"
+                                          placeholder="Comment (Optional)"></textarea>
+                                      </div>
+                  
+                                      <!-- Submit Button -->
+                                      <div class="col-lg-4 col-md-10 col-8 mx-auto mt-2">
+                                        <button type="button" class="form-control" onclick="submitForm()">Submit</button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </form>
+                  
+                                <!-- Thank You Message -->
+                  
+                              </div>
+                  
+                              <div class="col-lg-5 col-12 p-0">
+                                <div class="booking-form-image-wrap">
+                                  <img src="images/ayman.jpg" class="booking-form-image img-fluid" alt="">
+                                </div>
+                              </div>
+                  
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+                  <script>
+                    function toggleDropdown() {
+                      const dropdown = document.getElementById("gameOptions");
+                      dropdown.classList.toggle("show");
+                    }
+                
+                    window.onclick = function (event) {
+                      if (!event.target.matches('.form-control')) {
+                        const dropdowns = document.getElementsByClassName("dropdown-content");
+                        for (let i = 0; i < dropdowns.length; i++) {
+                          dropdowns[i].classList.remove("show");
+                        }
+                      }
+                    }
+                
+                    function selectGame(game) {
+                      document.querySelector(".dropdown button").innerText = game.charAt(0).toUpperCase() + game.slice(1);
+                      let price = 0;
+                      if (game === "billiards") price = 90;
+                      else if (game === "pingpong") price = 75;
+                      else if (game === "playstation") price = 45;
+                      else if (game === "haki") price = 50;
+                      else if (game === "babyfoot") price = 50;
+                
+                      document.getElementById("gamePrice").innerText = "Price: " + price + " EGP";
+                      document.getElementById("booking-form-price").value = price + " EGP";
+                      document.getElementById("gameOptions").classList.remove("show");
+                    }
+                
+                    function showError(message) {
+                      const errorMessageDiv = document.createElement('div');
+                      errorMessageDiv.innerText = message;
+                      errorMessageDiv.style.backgroundColor = '#f8d7da';
+                      errorMessageDiv.style.color = '#721c24';
+                      errorMessageDiv.style.padding = '10px';
+                      errorMessageDiv.style.marginBottom = '15px';
+                      errorMessageDiv.style.border = '1px solid #f5c6cb';
+                      errorMessageDiv.style.borderRadius = '5px';
+                      document.getElementById('bookingForm').insertBefore(errorMessageDiv, document.getElementById('bookingForm').firstChild);
+                    }
+                
+                    function submitForm() {
+                      const name = document.getElementById('booking-form-name').value;
+                      const phone = document.getElementById('booking-form-phone').value;
+                      const gameType = document.querySelector(".dropdown button").innerText;
+                      const message = document.getElementById('booking-form-message').value;
+                      const date = document.getElementById('booking-form-date').value;
+                      const time = document.getElementById('booking-form-time').value;
+                      const price = document.getElementById("booking-form-price").value;
+                
+                      if (!name || !phone || gameType === "Choose Game" || !price || !date || !time) {
+                        showError('Please fill all required fields.');
+                        return;
+                      }
+                
+                      const bookingData = { name, phone, gameType, message, date, time, price };
+                
+                      let orders = JSON.parse(localStorage.getItem('orders')) || [];
+                      orders.push(bookingData);
+                      localStorage.setItem('orders', JSON.stringify(orders));
+                
+                      const thankYouMessage = document.createElement('div');
+                      thankYouMessage.innerText = 'Thank you for your booking! We will confirm your reservation shortly.';
+                      thankYouMessage.style.backgroundColor = '#d4edda';
+                      thankYouMessage.style.color = '#155724';
+                      thankYouMessage.style.padding = '10px';
+                      thankYouMessage.style.marginTop = '15px';
+                      thankYouMessage.style.border = '1px solid #c3e6cb';
+                      thankYouMessage.style.borderRadius = '5px';
+                
+                      document.getElementById('bookingForm').appendChild(thankYouMessage);
+                    }
+                  </script>
+                  
+                     
+
+                
+                  
+                  
+                  <section class="contact-section section-padding" id="section_4">
+                    <div class="container">
+                      <div class="row">
+                  
+                        <div class="col-lg-12 col-12">
+                          <em class="text-white">Say Hello</em>
+                          <h2 class="text-white mb-4 pb-lg-2">Contact</h2>
+                        </div>
+                  
+                        <div class="col-lg-6 col-12">
+                          <form id="contactForm" class="custom-form contact-form" role="form" onsubmit="sendContactToWhatsApp(event)">
+                  
+                            <div class="row">
+                  
+                              <div class="col-lg-6 col-12">
+                                <label for="name" class="form-label">Name <sup class="text-danger">*</sup></label>
+                                <input type="text" name="name" id="contact-name" class="form-control" placeholder="Best Mood 91" required>
+                              </div>
+                  
+                              <div class="col-lg-6 col-12">
+                                <label for="email" class="form-label">Email Address</label>
+                                <input type="email" name="email" id="contact-email" pattern="[^ @]*@[^ @]*" class="form-control" placeholder="bestmode@gmail.com" required>
+                              </div>
+                  
+                              <div class="col-12">
+                                <label for="message" class="form-label">How can we help?</label>
+                                <textarea name="message" rows="4" class="form-control" id="contact-message" placeholder="Message" required></textarea>
+                              </div>
+                            </div>
+                  
+                            <div class="col-lg-5 col-12 mx-auto mt-3">
+                              <button type="submit" class="form-control">Send Message</button>
+                            </div>
+                          </form>
+                        </div>
+                  
+                        <div class="col-lg-6 col-12 mx-auto mt-5 mt-lg-0 ps-lg-5">
+                          <iframe class="google map"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d110286.94203065196!2d31.605745400818137!3d30.252274288364617!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1457fdee20efe5c3%3A0x39d3a249ec853684!2sSky%20Mall!5e0!3m2!1sen!2seg!4v1746006986577!5m2!1sen!2seg"
+                            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                  
+                      </div>
+                    </div>
+                  </section>
+                  
+                  <script>
+                    function sendContactToWhatsApp(event) {
+                      event.preventDefault();
+                  
+                      const name = document.getElementById('contact-name').value;
+                      const email = document.getElementById('contact-email').value;
+                      const message = document.getElementById('contact-message').value;
+                  
+                      const whatsappMessage = `Contact Form\n\nName: ${name}\nEmail: ${email}\nMessage: ${message}`;
+                      const whatsappUrl = `https://wa.me/201104925318?text=${encodeURIComponent(whatsappMessage)}`;
+                  
+                      window.open(whatsappUrl, '_blank');
+                    }
+                  </script>
+                  
+
+                  
+
+              
+
+
+
+                <footer class="site-footer">
+                    <div class="container">
+                        <div class="row">
+
+                            <div class="col-lg-4 col-12 me-auto">
+                                <em class="text-white d-block mb-4">Where to find us?</em>
+
+                                <strong class="text-white">
+                                    <i class="bi-geo-alt me-2"></i>
+                                    Egypt,10th of Ramadan City, sky Mall, third floor in front of Al Rowad Club.
+                                </strong>
+
+                                <ul class="social-icon mt-4">
+                                    <li class="social-icon-item">
+                                        <a href="https://www.facebook.com/bestmoodgaming/" class="social-icon-link bi-facebook">
+                                        </a>
+                                    </li>
+        
+                                  
+
+                                    <li class="social-icon-item">
+                                        <a href="https://api.whatsapp.com/send/?phone=201104925318&text=Name%3A+%0APhone%3A+%0ADate%3A+%0ATime%3A+18%3A30%0ANumber+of+People%3A+%0AGame%3A+%0A%0AMessage%3A+&type=phone_number&app_absent=0" class="social-icon-link bi-whatsapp">
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="col-lg-3 col-12 mt-4 mb-3 mt-lg-0 mb-lg-0">
+                                <em class="text-white d-block mb-4">Contact</em>
+
+                                <p class="d-flex mb-1">
+                                    <strong class="me-2">Phone:</strong>
+                                    <a href="tel: 305-240-9671" class="site-footer-link">
+                                        +20 110 492 5318
+                                    </a>
+                                </p>
+
+                                <p class="d-flex">
+                                    <strong class="me-2">Email:</strong>
+
+                                    <a href="mailto:info@yourgmail.com" class="site-footer-link">
+                                        Bestmood10th@gmail.com
+                                    </a>
+                                </p>
+                            </div>
+
+
+                            <div class="col-lg-5 col-12">
+                                <em class="text-white d-block mb-4">Opening Hours.</em>
+
+                                <ul class="opening-hours-list">
+                                    
+
+                                    <li class="d-flex">
+                                        All days of the week   :  
+                                     
+
+                                        <strong>    3:00PM - 2:00AM</strong>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="col-lg-8 col-12 mt-4">
+                                <p class="copyright-text mb-0">Copyright © Best Mood 91 
+                                    - Design: <a rel="sponsored" href="https://mohamedhany-0.web.app" target="_blank" style="color:rgba(255, 255, 255, 0.75) ;">Mohamed Hany</a></p>
+                            </div>
+                    </div>
+                </footer>
+            </main>
+           
+      
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/jquery.sticky.js"></script>
+        <script src="js/click-scroll.js"></script>
+        <script src="js/vegas.min.js"></script>
+        <script src="js/custom.js"></script>
+
+    </body>
+</html>
